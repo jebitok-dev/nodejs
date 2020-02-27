@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type: String,
+        unique: true,
         required: true,
         trim: true,
         lowerCase: true,
@@ -48,6 +49,22 @@ const userSchema = new mongoose.Schema({
     }]  
 });
 
+userSchema.virtual('tasks', { //virtual - exists elsewhere
+    ref: 'Task',
+    localField: '_id',
+    foreignField: 'owner'
+});
+
+userSchema.methods.toJSON = function () {
+    const user = this;
+    const userObject = user.toObject();
+
+    delete userObject.password;
+    delete userObject.tokens;
+
+    return userObject;
+}
+
 userSchema.methods.generateAuthToken = async function () {
     const user = this;
     const token = jwt.sign({ _id:user._id.toString()}, 'pizzaplace');
@@ -71,16 +88,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
     }
 
     return user;
-}
-
-userSchema.methods.toJSON = function () {
-    const user = this;
-    const userObject = user.toObject();
-
-    delete userObject.password;
-    delete userObject.tokens;
-
-    return userObject;
 }
 
 userSchema.pre('save', async function (next) {
