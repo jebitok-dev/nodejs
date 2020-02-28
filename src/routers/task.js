@@ -17,9 +17,10 @@ router.post('/tasks', auth, async (req, res) => {
     }
 });
 
+//populate mongoose method of referencing doucuments in other collections
 router.get('/tasks', auth, async (req, res) => {
     try {
-        await req.user.populate('tasks').execPopulate()
+        await req.user.populate('tasks').execPopulate() 
         res.send(req.user.tasks);
     } catch (e) {
         res.status(500).send(e)
