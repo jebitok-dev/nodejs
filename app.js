@@ -42,14 +42,28 @@ const fs = require('fs')
 // }
 
 // delete folder
+// if(!fs.existsSync('newfolder')) {
+//     fs.rmdir('new folder', (err, data) => {
+//         if(err) {
+//             console.log(err)
+//         } else {
+//             console.log('folder deleted')
+//         }
+//     })
+// } else {
+//     console.log('folder doesnt exists')
+// }
+
+// Delete File
+
 if(!fs.existsSync('newfolder')) {
-    fs.rmdir('new folder', (err, data) => {
+    fs.unlink('./ckmobile/note.txt', (err, data) => {
         if(err) {
             console.log(err)
         } else {
-            console.log('folder deleted')
+            console.log('The file is deleted')
         }
     })
 } else {
-    console.log('folder doesnt exists')
+    console.log('folder already exists')
 }
