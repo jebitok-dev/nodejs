@@ -9,7 +9,15 @@ const fs = require('fs')
 // })
 
 // Write File
-fs.writeFile('./ckmobile/note.txt', 'A new message', (err, data) => {
+// fs.writeFile('./ckmobile/note.txt', 'A new message', (err, data) => {
+//     if(err) {
+//         console.log(err)
+//     } else {
+//         console.log('A new message created')
+//     }
+// })
+
+fs.appendFile('./ckmobile/note.txt', 'A new Message 2\r\n', (err, data) => {
     if(err) {
         console.log(err)
     } else {
