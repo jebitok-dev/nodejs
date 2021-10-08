@@ -1,23 +1,27 @@
 {
-  "name": "tasks",
+  "name": "nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jebitok-dev/nodejs.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jebitok-dev/nodejs/issues"
+  },
+  "homepage": "https://github.com/jebitok-dev/nodejs#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.4.0",
-    "mongodb": "^3.5.3",
-    "mongoose": "^5.3.16",
-    "nodemon": "^1.18.9",
-    "validator": "^10.9.0",
-    "@babel/preset-env": "^7.14.7",
-    "babel-eslint": "^10.1.0"
+    "axios": "^0.22.0",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.13"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
