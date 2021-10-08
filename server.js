@@ -1,11 +1,12 @@
 const http = require('http');
-const port = 8080
-const hostname = 'localhost'
+const hostname = 'localhost';
+const port = 8080;
 
 const server = http.createServer((req, res) => {
-   console.log('A request is made') 
+   console.log('request url', req.url) 
+   console.log('request method', req.method);
 })
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
     console.log(`listening on port ${port}`)
 })
