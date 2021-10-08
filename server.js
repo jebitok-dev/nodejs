@@ -10,13 +10,16 @@ const server = http.createServer((req, res) => {
 
     switch(req.url) {
         case '/':
-            route += 'index.html'
+            route += 'index.html';
+            res.statusCode = 200;
             break;
         case '/contact':
-            route += 'contact.html'
+            route += 'contact.html';
+            res.statusCode = 200;
             break;
         default:
-            route += '404.html'
+            route += '404.html';
+            res.statusCode = 404;
             break;
     }
 
