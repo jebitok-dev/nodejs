@@ -11,6 +11,6 @@ app.get('/add-item', (req, res) => {
     res.sendFile('./views/add-item.html', {root: __dirname})
 })
 
-app.get('/error', (req, res) => {
+app.use((req, res) => {
     res.sendFile('./views/error.html', {root: __dirname})
 })
